@@ -43,7 +43,7 @@ setTimeout(function log(){
 
 //Question 4
 // Write a  code to calculate area of a rectablge using inner functions. In this case outer function should 
-// accept parameter length and inner functions should accpet parameter breadth
+// accept parameter length and inner functions should accept parameter breadth.
 
 const rectangle = (length) => {
   breadth = function(breadth) {
@@ -54,20 +54,23 @@ rectangle(5);
 breadth(3)
 
 //Question 5
-//Take a variable in outer function and create inner function to increase the counter everytime is is called
+//Take a variable in outer function and create inner function to increase the counter everytime it is called
 
-const outer = () => {
-  let counter1 = 0;
-  inner = function(){
-      return counter1++;
-  };
-  console.log(`${counter1}`);
-};
+function outer(){
+  let count= 0;
+  function inner(){
+    return count +=1;
+    // count = count + 1;
+    // console.log(count)
+  }
+  return inner;
+}
+var counter = outer();
+console.log(counter());
+console.log(counter());
+console.log(counter());
+console.log(counter());
 
-const counter2 = outer();
-counter2(); //1
-counter2(); //2
-counter2(); //3
 
 
 //Question 6
@@ -75,7 +78,9 @@ counter2(); //3
 var a = 12;
 (function(){
   alert(a);
-})(); //output 12
+})(); 
+
+//output 12
 
 
 //Question 7
